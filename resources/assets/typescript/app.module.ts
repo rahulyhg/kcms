@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from "./components/ui/toolbar/toolbar.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { HomeComponent } from "./components/home/home.component";
+import { TaskComponent } from './components/task/task.component';
+import { TaskService } from './services/task/task.service';
 
 @NgModule({
     imports: [
@@ -26,10 +28,11 @@ import { HomeComponent } from "./components/home/home.component";
         AppComponent,
         ToolbarComponent,
         PageNotFoundComponent,
-        HomeComponent
+        HomeComponent,
+        TaskComponent
     ],
     providers: [
-        //service here
+        TaskService
     ],
     bootstrap:[
         AppComponent

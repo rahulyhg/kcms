@@ -19,6 +19,13 @@ Route::get('/{any?}', [
 // API route
 Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');
 
+// Task API
+Route::get('/api/tasks', 'ModelControllers\TaskController@getAllTasks');
+Route::get('/api/task/{id}', 'ModelControllers\TaskController@viewTask');
+Route::post('/api/task', 'ModelControllers\TaskController@createTask');
+Route::put('/api/task/{id}', 'ModelControllers\TaskController@editTask');
+Route::delete('/api/task/{id}', 'ModelControllers\TaskController@deleteTask');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
