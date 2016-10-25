@@ -38,7 +38,8 @@ let plugins = [
 if (isProduction) {
     plugins.push(
         new OptimizeCssAssetsPlugin(),
-        new webpack.optimize.DedupePlugin(),
+        //Wait for future fix - Son Truong
+        //new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             compress: {

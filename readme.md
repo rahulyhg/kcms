@@ -1,4 +1,5 @@
 # Laravel 5.3 and Angular 2.1 cms project.
+# Add Angular 2 Material to project and use in the future !
 
 ## Installation:
 
