@@ -38,8 +38,5 @@ php artisan serve
 ```
 
 ## Credit
-<<<<<<< HEAD
 Forked from - https://github.com/sanex3339/laravel-5-angular-2-example
-=======
->>>>>>> f4bda0dcabf1138dc9eb349dba25aab0b346e649
 Material Design for Angular 2 - https://github.com/angular/material2
