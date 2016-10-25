@@ -3,16 +3,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '@angular/material';
 
 import { routes } from './app.routing';
 
 import { AppComponent } from './app.component';
+import { ToolbarComponent } from "./components/ui/toolbar/toolbar.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { FirstComponent } from "./components/first/first.component";
-import { SecondComponent } from "./components/second/second.component";
-import { ProgressBar } from "./components/ui/progress-bar/progress-bar.component";
-
-import { FileUploadService } from "./services/file-upload/file-upload.service";
+import { HomeComponent } from "./components/home/home.component";
+import { TaskComponent } from './components/task/task.component';
+import { TaskService } from './services/task/task.service';
 
 @NgModule({
     imports: [
@@ -21,17 +21,18 @@ import { FileUploadService } from "./services/file-upload/file-upload.service";
         HttpModule,
         RouterModule.forRoot(routes, {
             useHash: true
-        })
+        }),
+        MaterialModule.forRoot()
     ],
     declarations: [
         AppComponent,
+        ToolbarComponent,
         PageNotFoundComponent,
-        FirstComponent,
-        SecondComponent,
-        ProgressBar
+        HomeComponent,
+        TaskComponent
     ],
     providers: [
-        FileUploadService
+        TaskService
     ],
     bootstrap:[
         AppComponent

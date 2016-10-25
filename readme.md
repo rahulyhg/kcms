@@ -1,4 +1,5 @@
 # Laravel 5.3 and Angular 2.1 cms project.
+# Add Angular 2 Material to project and use in the future !
 
 ## Installation:
 
@@ -35,3 +36,7 @@ php artisan serve
 ```ts
 'template': require('./first.template.html'),
 ```
+
+## Credit
+Forked from - https://github.com/sanex3339/laravel-5-angular-2-example
+Material Design for Angular 2 - https://github.com/angular/material2

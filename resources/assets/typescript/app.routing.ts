@@ -1,16 +1,16 @@
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
-import { FirstComponent } from "./components/first/first.component";
-import { SecondComponent } from "./components/second/second.component";
+import { HomeComponent } from "./components/home/home.component";
+import { TaskComponent } from "./components/task/task.component";
 
 export const routes: Routes = [
     {
         path: '',
-        component: FirstComponent
+        component: HomeComponent
     },
     {
-        path: 'edit',
-        component: SecondComponent
+        path: 'tasks',
+        component: TaskComponent
     },
     {
         path: '**',

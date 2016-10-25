@@ -17,12 +17,59 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-.container {
+.main-content {
   height: 100%;
-
   text-align: center;
 }
-
-.content {
-  height: 100%;
+.component-container{
+    margin-top: 64px;
+    height: 100%;
+    z-index: 2;
+}
+.main-toolbar{
+    position: fixed;
+    top: 0px;
+    z-index: 3;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+snack-bar-container{
+    height: initial!important;
+}
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+.sidebar{
+    height: 100%;
+    background-color: #9fa8da;
+}
+.task-card{
+    padding: 0!important;
+}
+.task-list{
+    background-color: #fcfcfc;
+    height: 100%;
+    padding: 30px;
+}
+.task-button{
+    text-align: right;
+}
+.md-list-item{
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 1px;
+}
+.task-complete-text {
+    font-style: italic;
+    color: #ccc;
+    text-decoration: line-through;
+}
+.task-normal-text {
+    font-style: normal;
+}
+.md-whiteframe-glow-z1 {
+    margin-bottom: 3px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084);
+}
+.site-content-toolbar{
+    background: #f6f6f6 !important;
+    color: #666 !important;
 }
