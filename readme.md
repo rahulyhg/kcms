@@ -36,3 +36,6 @@ php artisan serve
 ```ts
 'template': require('./first.template.html'),
 ```
+
+## Credit
+Material Design for Angular 2 - https://github.com/angular/material2
