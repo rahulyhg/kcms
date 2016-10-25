@@ -15,5 +15,9 @@ import '@angular/platform-browser-dynamic';
 import '@angular/router';
 import '@angular/upgrade';
 
+// Angular 2 Material
+import '@angular/material';
+import 'hammerjs'
+
 // RxJS
 import 'rxjs';
