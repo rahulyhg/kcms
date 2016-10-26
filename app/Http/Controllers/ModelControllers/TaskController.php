@@ -27,14 +27,14 @@ class TaskController extends Controller
         if(!isset($task->title)){
             return json_encode([
                 'error' => 404,
-                'message' => 'Nothing to add!'
+                'message' => 'Nothing to add !'
             ]);
         }else{
             if($task->save()){
                 return json_encode([
                     'error' => null,
                     'task' => $task,
-                    'message' => 'Your task has been added!'
+                    'message' => 'Your task has been added !'
                 ]);
             }else{
                 return json_encode([
@@ -51,7 +51,7 @@ class TaskController extends Controller
             return $task->toJson();
         }else{
             return json_encode([
-                'message' => 'Task not found!'
+                'message' => 'Task not found !'
             ]);
         }
         
@@ -61,7 +61,7 @@ class TaskController extends Controller
         $updTask = Task::find($id);  
         if(!$updTask){
             return json_encode([
-                'message' => 'Task not found!'
+                'message' => 'Task not found !'
             ]);
         }else{
             if(isset($request->isDone)) $updTask->isDone = $request->isDone;
@@ -74,11 +74,11 @@ class TaskController extends Controller
             }
             if($updTask->isDone){
                 return json_encode([
-                    'message' => 'Task completed!'
+                    'message' => 'Task completed !'
                 ]);
             }else{
                 return json_encode([
-                    'message' => 'Task recovered!'
+                    'message' => 'Task recovered !'
                 ]);
             }
         }
@@ -89,12 +89,12 @@ class TaskController extends Controller
         if(!Task::find($id)){
             return json_encode([
                 'deletedId' => $id,
-                'message' => 'Task has been deleted!'
+                'message' => 'Task has been deleted !'
             ]);
         }else{
             return json_encode([
                 'deletedId' => 0,
-                'message' => 'Nothing to delete!'
+                'message' => 'Nothing to delete !'
             ]);
         }
     }

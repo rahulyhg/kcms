@@ -41,4 +41,6 @@ php artisan serve
 ```
 Forked from - https://github.com/sanex3339/laravel-5-angular-2-example
 Material Design for Angular 2 - https://github.com/angular/material2
+ng2-slim-loading-bar - https://github.com/akserg/ng2-slim-loading-bar
+ng2-toasty - https://github.com/akserg/ng2-toasty
 ```

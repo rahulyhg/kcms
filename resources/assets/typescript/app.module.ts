@@ -4,6 +4,9 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '@angular/material';
+//Extra UI Tools
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { ToastyModule } from 'ng2-toasty';
 
 import { routes } from './app.routing';
 
@@ -25,7 +28,9 @@ import { TaskService } from './services/task/task.service';
         RouterModule.forRoot(routes, {
             useHash: true
         }),
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+        ToastyModule.forRoot(),
+        SlimLoadingBarModule.forRoot()
     ],
     declarations: [
         AppComponent,

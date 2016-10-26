@@ -3,6 +3,7 @@
 
     </div>
     <div class="task-list col-md-9">
+        <ng2-slim-loading-bar [color]="'blue'" [height]="'2px'"></ng2-slim-loading-bar>
         <form (submit)="addTask($event)">
             <md-input [(ngModel)]="title" name="title" placeholder="Add your task" style="width: 100%"></md-input>
         </form>

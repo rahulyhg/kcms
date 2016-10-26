@@ -17,7 +17,11 @@ import '@angular/upgrade';
 
 // Angular 2 Material
 import '@angular/material';
-import 'hammerjs'
+import 'hammerjs';
+
+// Extra tools
+import 'ng2-toasty';
+import 'ng2-slim-loading-bar';
 
 // RxJS
 import 'rxjs';

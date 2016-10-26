@@ -5,5 +5,10 @@ import { Component } from '@angular/core';
     template: require('./app.template.html')
 })
 export class AppComponent {
-    constructor () {}
+    constructor (
+                    //
+                ) 
+    {
+        //
+    }
 }
