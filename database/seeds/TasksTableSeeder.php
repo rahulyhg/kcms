@@ -11,7 +11,7 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 500; $i++) { 
             DB::table('tasks')->insert([
                 'title' => 'Task randomize '. str_random(10),
                 'isDone' => false
