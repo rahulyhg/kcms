@@ -11,17 +11,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@mail.mail',
-            'password' => bcrypt('123456'),
-        ]);
-        for ($i=0; $i < 10; $i++) { 
-            DB::table('users')->insert([
-                'name' => 'user' . $i,
-                'email' => str_random(10).'@gmail.com',
-                'password' => bcrypt('123456'),
-            ]);
-        }
+        DB::table('users')->delete();
+
+        $users = array(
+            ['name' => 'admin', 'email' => 'admin@admin.admin', 'password' => Hash::make('123456')],
+            ['name' => 'user1', 'email' => 'user1@user1.user1', 'password' => Hash::make('123456')],
+            ['name' => 'user2', 'email' => 'user2@user2.user2', 'password' => Hash::make('123456')],
+            ['name' => 'user3', 'email' => 'user3@user3.user3', 'password' => Hash::make('123456')],
+        );
     }
 }
