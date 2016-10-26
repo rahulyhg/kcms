@@ -43,9 +43,6 @@ Forked from - https://github.com/sanex3339/laravel-5-angular-2-example
 Material Design for Angular 2 - https://github.com/angular/material2
 ng2-slim-loading-bar - https://github.com/akserg/ng2-slim-loading-bar
 ng2-toasty - https://github.com/akserg/ng2-toasty
-<<<<<<< HEAD
-=======
 Laratrust (Laravel 5 Package) - https://github.com/santigarcor/laratrust
 jwt-auth - https://github.com/tymondesigns/jwt-auth
->>>>>>> explore-conflict
 ```
