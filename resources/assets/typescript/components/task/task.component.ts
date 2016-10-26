@@ -48,7 +48,7 @@ export class TaskComponent {
                 data => {
                     if(data.error === null){
                         this.tasks.push(data.task);
-                        this.toastService.showToast('success', data.message, '', true, 4000);
+                        this.toastService.showToast('success', data.message, '', true, 3000);
                         this.title = '';
                     }else{
                         this.toastService.showToast('error', data.message, '', true, 3000);
@@ -66,20 +66,25 @@ export class TaskComponent {
         this.slimLoadingBarService.start();
         var tasks = this.tasks;
         this.taskService.deleteTask(id)
-            .subscribe(data => {
-                if(data.deletedId == id && data.deletedId>0){
-                    this.toastService.showToast('success', data.message, '', true, 4000);
-                    for (var i = 0; i < tasks.length; i++) {
-                        if(tasks[i].id == id){
-                            tasks.splice(i, 1);
-                            this.slimLoadingBarService.complete();
+            .subscribe(
+                data => {
+                    if(data.deletedId == id && data.deletedId>0){
+                        this.toastService.showToast('success', data.message, '', true, 3000);
+                        for (var i = 0; i < tasks.length; i++) {
+                            if(tasks[i].id == id){
+                                tasks.splice(i, 1);
+                            }
                         }
+                    }else{
+                        this.toastService.showToast('warning', data.message, '', true, 3000);
                     }
-                }else{
-                    this.toastService.showToast('warning', data.message, '', true, 3000);
-                    this.slimLoadingBarService.complete();
-                }
-            });
+                },
+                err => {
+                        this.toastService.showToast('error', 'System Error', err, true, 3000);
+                        this.slimLoadingBarService.complete();
+                },
+                () => this.slimLoadingBarService.complete()
+            );
     }
 
     updateStatus(task){

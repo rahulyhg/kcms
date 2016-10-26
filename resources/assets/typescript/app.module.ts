@@ -9,16 +9,16 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ToastyModule } from 'ng2-toasty';
 
 import { routes } from './app.routing';
+import { AuthGuard } from './_guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from "./components/ui/toolbar/toolbar.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { HomeComponent } from "./components/home/home.component";
-<<<<<<< HEAD
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './services/task/task.service';
-=======
->>>>>>> f4bda0dcabf1138dc9eb349dba25aab0b346e649
+import { AuthComponent } from './components/user/auth.component';
+import { AuthenticationService } from './services/user/auth.service';
 
 @NgModule({
     imports: [
@@ -36,18 +36,13 @@ import { TaskService } from './services/task/task.service';
         AppComponent,
         ToolbarComponent,
         PageNotFoundComponent,
-<<<<<<< HEAD
         HomeComponent,
+        AuthComponent,
         TaskComponent
     ],
     providers: [
-        TaskService
-=======
-        HomeComponent
-    ],
-    providers: [
         //service here
->>>>>>> f4bda0dcabf1138dc9eb349dba25aab0b346e649
+        AuthGuard, TaskService, AuthenticationService
     ],
     bootstrap:[
         AppComponent

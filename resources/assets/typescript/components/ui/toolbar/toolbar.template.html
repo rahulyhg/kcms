@@ -1,12 +1,14 @@
-<<<<<<< HEAD
 <md-toolbar color="primary" class="main-toolbar">
-=======
-<md-toolbar color="primary">
->>>>>>> f4bda0dcabf1138dc9eb349dba25aab0b346e649
   <span>Application Title</span>
 
-  <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
 
-  <span>Right Aligned Text</span>
+    <button md-icon-button color="white" [md-menu-trigger-for]="menu">
+      <md-icon>account_circle</md-icon>
+    </button>
 </md-toolbar>
+<md-menu x-position="before" #menu="mdMenu" class="account-menu">
+    <button md-menu-item (click)="logout()">Logout</button>
+    <button md-menu-item>Profile</button>
+</md-menu>
