@@ -19,18 +19,60 @@ body {
 
 .main-content {
   height: 100%;
-  text-align: center;
-}
-.component-container{
-    margin-top: 64px;
-    height: 100%;
-    z-index: 2;
+  //text-align: center;
 }
 .main-toolbar{
     position: fixed;
     top: 0px;
     z-index: 3;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+.component-container{
+    position: fixed;
+    top: 64px;
+    height: 100%;
+    width: 100%;
+}
+.component-toolbar{
+    background-color: rgba(226, 226, 226, 0.22);
+    min-height: 40px;
+    z-index: 2;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+.component-title{
+    text-align: left;
+    min-height: 40px;
+    padding: 10px;
+}
+.component-title-text{
+    margin-left: 5px;
+}
+@media screen and (min-width:480px){
+    .component-actionbar{
+        text-align: left;
+    }
+}
+@media screen and (min-width:992px){
+    .component-actionbar{
+        text-align: right;
+    }
+}
+.actionbar-button{
+    padding-left: 0px;
+}
+.actionbar-button-icon{
+    color: black;
+}
+.data-table-card{
+    margin-top: 20px;
+}
+.datatable {
+	text-align: left;
+    height: 100%;
+	margin:0 auto;
+}
+.datatable.vertical-scroll {
+  height:70vh;
 }
 snack-bar-container{
     height: initial!important;

@@ -16,7 +16,6 @@ export class AuthenticationService {
     login(email, password) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-
         return this.http
             .post(
                 '/authenticate', 
@@ -41,5 +40,10 @@ export class AuthenticationService {
 
     isLoggedIn() {
         return this.loggedIn;
+    }
+
+    getUsers(){
+        return this.http.get('api/users' + '?token=' + localStorage.getItem('auth_token'))
+            .map(res => res.json());
     }
 }

@@ -3,17 +3,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+//Material Modules
 import { MaterialModule } from '@angular/material';
+import { Ng2MaterialModule} from "ng2-material";
 //Extra UI Tools
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ToastyModule } from 'ng2-toasty';
-
+import { Angular2DataTableModule } from 'angular2-data-table';
+//Routes
 import { routes } from './app.routing';
 import { AuthGuard } from './_guards/auth.guard';
-
+//Main Components
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from "./components/ui/toolbar/toolbar.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+//Administrator Components
+import { AdminComponent } from "./components/admin/admin.component";
+import { UserComponent } from './components/admin/user/user.component';
+import { RoleComponent } from './components/admin/user/role.component';
+import { PermissionComponent } from './components/admin/user/permission.component';
+//Normal Components
 import { HomeComponent } from "./components/home/home.component";
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './services/task/task.service';
@@ -29,13 +38,19 @@ import { AuthenticationService } from './services/user/auth.service';
             useHash: true
         }),
         MaterialModule.forRoot(),
+        Ng2MaterialModule.forRoot(),
         ToastyModule.forRoot(),
-        SlimLoadingBarModule.forRoot()
+        SlimLoadingBarModule.forRoot(),
+        Angular2DataTableModule
     ],
     declarations: [
         AppComponent,
         ToolbarComponent,
         PageNotFoundComponent,
+        AdminComponent,
+        UserComponent,
+        RoleComponent,
+        PermissionComponent,
         HomeComponent,
         AuthComponent,
         TaskComponent

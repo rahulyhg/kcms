@@ -1,9 +1,14 @@
+import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { AuthGuard } from './_guards/auth.guard';
+//Import components
+import { AdminComponent } from "./components/admin/admin.component";
 import { HomeComponent } from "./components/home/home.component";
 import { AuthComponent } from "./components/user/auth.component";
 import { TaskComponent } from "./components/task/task.component";
+//Import other route file
+import { adminRoutes } from './components/admin/admin.routing';
 
 export const routes: Routes = [
     {
@@ -15,6 +20,7 @@ export const routes: Routes = [
         path: 'login',
         component: AuthComponent
     },
+    ...adminRoutes,
     {
         path: 'tasks',
         component: TaskComponent,
@@ -25,3 +31,5 @@ export const routes: Routes = [
         component: PageNotFoundComponent
     }
 ];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
