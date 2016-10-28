@@ -8,18 +8,21 @@ html, body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: #333131;
-  font-weight: normal;
-  font-family: 'Lato', sans-serif;
+body {  
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #333131;
+    font-weight: normal;
+    font-family: 'Lato', sans-serif;
 }
-
+::-webkit-scrollbar {
+    width: 6px;
+}
 .main-content {
   height: 100%;
-  //text-align: center;
+  overflow-x: hidden;
 }
 .main-toolbar{
     position: fixed;
@@ -29,7 +32,7 @@ body {
 }
 .component-container{
     position: fixed;
-    top: 64px;
+    padding-top: 64px;
     height: 100%;
     width: 100%;
 }
@@ -47,14 +50,26 @@ body {
 .component-title-text{
     margin-left: 5px;
 }
-@media screen and (min-width:480px){
+@media screen and (min-width:300px){
     .component-actionbar{
-        text-align: left;
+        text-align: center;
+    }
+    .data-table-card{
+        margin-bottom: 90px;
+        margin-left: 2px;
+        padding: 25px;
+    }
+    .actionbar-button-text{
+        visibility: hidden;
     }
 }
 @media screen and (min-width:992px){
-    .component-actionbar{
-        text-align: right;
+    .data-table-card{
+        margin-bottom: 40px;
+        padding: 30px;
+    }
+    .actionbar-button-text{
+        visibility: visible;
     }
 }
 .actionbar-button{
@@ -63,16 +78,25 @@ body {
 .actionbar-button-icon{
     color: black;
 }
-.data-table-card{
-    margin-top: 20px;
+.data-table-row{
+    height: 100%;
+    overflow: auto;
 }
 .datatable {
 	text-align: left;
-    height: 100%;
 	margin:0 auto;
 }
 .datatable.vertical-scroll {
   height:70vh;
+}
+.action-del-button{
+    color: red;
+}
+.action-edit-button{
+    color: blue;
+}
+.action-check-button{
+    color: green;
 }
 snack-bar-container{
     height: initial!important;
@@ -117,4 +141,16 @@ snack-bar-container{
 }
 .account-menu{
     margin-top: 50px;
+}
+.app-footer{
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    background-color: #444444;
+    bottom: 0;
+    text-align: center;
+    padding: 5px;
+}
+.app-footer-text{
+    color: white;
 }

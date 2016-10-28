@@ -21,14 +21,10 @@ export class UserComponent {
         loadingIndicator: true,
         headerHeight: 50,
         footerHeight: 50,
+        rowHeight: 'auto',
         externalPaging: true,
         limit: 10,
-        scrollbarH: true,
-        columns: [
-            new TableColumn({ name: 'Id' }),
-            new TableColumn({ name: 'Name' }),
-            new TableColumn({ name: 'Email' })
-        ]
+        scrollbarH: true
     });
     constructor (private userService: AuthenticationService, private toastService: ToastService) {
         console.log('User Component was loaded');

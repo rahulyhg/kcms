@@ -1,42 +1,85 @@
 <div class="component-container">
-    <div class="col-md-12 col-xs-12 component-toolbar">
-        <div class="col-md-8 col-xs-12 component-title">
-            <span class="component-title-text">User Management</span>
-        </div>
-        <div class="col-md-4 col-xs-12 component-actionbar">
-            <div class="col-md-4 col-xs-12 actionbar-button">
-                <button md-icon-button routerLink="/admin/users" routerLinkActive="active" color="white">
-                    <md-icon class="actionbar-button-icon">person_add</md-icon>
-                </button>
-                New Users
+    <div class="row">
+        <div class="col-md-12 col-xs-12 component-toolbar">
+            <div class="col-md-6 col-xs-12 component-title">
+                <span class="component-title-text">User Management</span>
             </div>
-            <div class="col-md-4 col-xs-12 actionbar-button">
-                <button md-icon-button routerLink="/admin/roles" routerLinkActive="active" color="white">
-                    <md-icon class="actionbar-button-icon">local_offer</md-icon>
-                </button>
-                Roles
-            </div>
-            <div class="col-md-4 col-xs-12 actionbar-button">
-                <button md-icon-button routerLink="/admin/permissions" routerLinkActive="active" color="white">
-                    <md-icon class="actionbar-button-icon">vpn_key</md-icon>
-                </button>
-                Permissions
+            <div class="col-md-6 col-xs-12 component-actionbar">
+                <div class="col-md-4 col-xs-4 actionbar-button">
+                    <button md-icon-button routerLink="/admin/users" routerLinkActive="active" color="white">
+                        <md-icon class="actionbar-button-icon">person_add</md-icon>
+                    </button>
+                    <span class="actionbar-button-text">New User</span>
+                </div>
+                <div class="col-md-4 col-xs-4 actionbar-button">
+                    <button md-icon-button routerLink="/admin/roles" routerLinkActive="active" color="white">
+                        <md-icon class="actionbar-button-icon">local_offer</md-icon>
+                    </button>
+                    <span class="actionbar-button-text">Roles</span>
+                </div>
+                <div class="col-md-4 col-xs-4 actionbar-button">
+                    <button md-icon-button routerLink="/admin/permissions" routerLinkActive="active" color="white">
+                        <md-icon class="actionbar-button-icon">vpn_key</md-icon>
+                    </button>
+                    <span class="actionbar-button-text">Permissions</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-xs-12 data-table-card">
-        <input
-            type='text'
-            style='padding:8px;margin:15px;width:30%;'
-            placeholder='Type to filter the name column...'
-            [ngModel]='val'
-            (ngModelChange)='updateFilter($event)'
-        />
-        <datatable
-            class='material striped'
-            [rows]='users'
-            [options]='options'
-            (onPageChange)='onPage($event)'>
-        </datatable>
+    <div class="row data-table-row">
+        <div class="col-md-12 col-xs-12 data-table-card">
+            <input
+                type='text'
+                style='padding:8px;margin:15px;width:30%;'
+                placeholder='Type to filter the name column...'
+                [ngModel]='val'
+                (ngModelChange)='updateFilter($event)'
+            />
+            <datatable
+                class='material striped'
+                [rows]='users'
+                [options]='options'
+                (onPageChange)='onPage($event)'>
+                <datatable-column name="No">
+                    <template let-column="column">
+                        No.
+                    </template>
+                    <template let-row="row" let-value="value">
+                        {{row.$$index+1}}
+                    </template>
+                </datatable-column>
+                <datatable-column name="Name">
+                    <template let-value="value">
+                        {{value}}
+                    </template>
+                </datatable-column>
+                <datatable-column name="Email">
+                    <template let-value="value">
+                        {{value}}
+                    </template>
+                </datatable-column>
+                <datatable-column name="Roles">
+                    <template let-value="value">
+                        Roles here
+                    </template>
+                </datatable-column>
+                <datatable-column name="Action">
+                    <template let-column="column">
+                        Action
+                    </template>
+                    <template let-value="value">
+                        <button md-tooltip="Delete user" tooltip-position="below" md-icon-button>
+                            <md-icon class="action-del-button">clear</md-icon>
+                        </button>
+                        <button md-tooltip="Edit user" tooltip-position="below" md-icon-button>
+                            <md-icon class="action-edit-button">create</md-icon>
+                        </button>
+                        <button md-tooltip="Check ability" tooltip-position="below" md-icon-button>
+                            <md-icon class="action-check-button">playlist_add_check</md-icon>
+                        </button>
+                    </template>
+                </datatable-column>
+            </datatable>
+        </div>
     </div>
 </div>
