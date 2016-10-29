@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../../../services/user/auth.service';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
     selector: 'toolbar',
     template: require('./toolbar.template.html'),
-    providers:[AuthenticationService]
+    providers: [ UserService ]
 
 })
 export class ToolbarComponent {
-    constructor (private authenticationService: AuthenticationService) {
+    constructor (private auth: UserService) {
         console.log('Toolbar Component was loaded');
     }
 
     logout(){
-        this.authenticationService.logout();
+        this.auth.logout();
     }
 }

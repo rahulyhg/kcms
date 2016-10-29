@@ -49,7 +49,7 @@ Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']]
     Route::post('check', 'JwtAuthenticateController@checkRoles');
 });
 // Authentication route
-Route::post('authenticate', 'JwtAuthenticateController@authenticate');
+Route::post('auth/login', 'JwtAuthenticateController@authenticate');
 
 // API route
 Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');

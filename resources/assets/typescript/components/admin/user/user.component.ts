@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { ToastService } from '../../../services/ui/toast.service';
 import { TableOptions, TableColumn, ColumnMode} from 'angular2-data-table';
-import { AuthenticationService } from '../../../services/user/auth.service';
+import { UserService } from '../../../services/user/user.service';
 import { User } from '../../../models/User';
 
 @Component({
     selector: 'state-template',
     template: require('./user.template.html'),
-    providers: [AuthenticationService, ToastService]
+    providers: [UserService, ToastService]
 })
 export class UserComponent {
     users:User [];
@@ -26,7 +26,7 @@ export class UserComponent {
         limit: 10,
         scrollbarH: true
     });
-    constructor (private userService: AuthenticationService, private toastService: ToastService) {
+    constructor (private userService: UserService, private toastService: ToastService) {
         console.log('User Component was loaded');
         this.userService.getUsers()
             .subscribe(

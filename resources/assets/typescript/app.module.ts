@@ -11,8 +11,10 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { ToastyModule } from 'ng2-toasty';
 import { Angular2DataTableModule } from 'angular2-data-table';
 //Routes
-import { routes } from './app.routing';
-import { AuthGuard } from './_guards/auth.guard';
+import { routes, CLIENT_ROUTER_PROVIDERS } from './app.routing';
+import { Ng2UiAuthModule } from 'ng2-ui-auth';
+import { MyAuthConfig } from  './config';
+//import { AuthGuard } from './_guards/auth.guard';
 //Main Components
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from "./components/ui/toolbar/toolbar.component";
@@ -27,7 +29,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './services/task/task.service';
 import { AuthComponent } from './components/user/auth.component';
-import { AuthenticationService } from './services/user/auth.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
     imports: [
@@ -37,6 +39,7 @@ import { AuthenticationService } from './services/user/auth.service';
         RouterModule.forRoot(routes, {
             useHash: true
         }),
+        Ng2UiAuthModule.getWithConfig(MyAuthConfig),
         MaterialModule.forRoot(),
         Ng2MaterialModule.forRoot(),
         ToastyModule.forRoot(),
@@ -56,7 +59,10 @@ import { AuthenticationService } from './services/user/auth.service';
         TaskComponent
     ],
     providers: [
-        AuthGuard, TaskService, AuthenticationService
+        CLIENT_ROUTER_PROVIDERS,
+        //AuthGuard,
+        TaskService,
+        UserService
     ],
     bootstrap:[
         AppComponent

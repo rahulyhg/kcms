@@ -24,6 +24,6 @@ import 'ng2-material';
 import 'ng2-toasty';
 import 'ng2-slim-loading-bar';
 import 'angular2-data-table';
-
+import 'ng2-ui-auth';
 // RxJS
 import 'rxjs';

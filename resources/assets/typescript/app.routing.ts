@@ -10,11 +10,14 @@ import { TaskComponent } from "./components/task/task.component";
 //Import other route file
 import { adminRoutes } from './components/admin/admin.routing';
 
+export const CLIENT_ROUTER_PROVIDERS = [
+    AuthGuard
+];
+
 export const routes: Routes = [
     {
         path: '',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
+        component: HomeComponent
     },
     {
         path: 'login',

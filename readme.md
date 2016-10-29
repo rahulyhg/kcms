@@ -39,11 +39,12 @@ php artisan serve
 
 ## Credit
 ```
-Forked from - https://github.com/sanex3339/laravel-5-angular-2-example
+Origin forked from - https://github.com/sanex3339/laravel-5-angular-2-example
 Material Design for Angular 2 - https://github.com/angular/material2
 ng2-slim-loading-bar - https://github.com/akserg/ng2-slim-loading-bar
 ng2-toasty - https://github.com/akserg/ng2-toasty
 Laratrust (Laravel 5 Package) - https://github.com/santigarcor/laratrust
 jwt-auth - https://github.com/tymondesigns/jwt-auth
 ng2-material - https://justindujardin.github.io/ng2-material
+ng2-ui-auth - https://github.com/ronzeidman/ng2-ui-auth
 ```

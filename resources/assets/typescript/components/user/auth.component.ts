@@ -1,43 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
- 
-import { AuthenticationService } from '../../services/user/auth.service';
+import { AuthService } from 'ng2-ui-auth';
+import { User } from '../../models/User';
  
 @Component({
     selector: 'login-form',
-    template: require('./auth.template.html'),
-    providers: [AuthenticationService]
+    template: require('./auth.template.html')
 })
  
 export class AuthComponent implements OnInit {
-    model: any = {};
+    user: any = {};
     loading = false;
     error = '';
  
     constructor(
-        private router: Router,
-        private authenticationService: AuthenticationService) { 
-            console.log('Login loaded !');
-        }
- 
-    ngOnInit() {
-        // reset login status
-        this.authenticationService.logout();
+            private auth: AuthService,
+            private router: Router,
+            ) 
+    { 
+        console.log('Login component started !');
     }
  
+    ngOnInit() {
+        //
+    }
     login() {
-        this.loading = true;
-        this.authenticationService.login(this.model.email, this.model.password)
-            .subscribe(result => {
-                if (result.token !== null) {
-                    // login successful
-                    this.loading = false;
-                    this.router.navigate(['/']);
-                } else {
-                    // login failed
-                    this.loading = false;
-                    this.error = 'Email or password is incorrect';
-                }
+        this.auth.login(this.user)
+            .subscribe({
+                error: (err: any) => console.log(err),
+                complete: () => this.router.navigateByUrl('admin')
             });
     }
 }
