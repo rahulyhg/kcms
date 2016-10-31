@@ -32,9 +32,9 @@ Route::get('/{any?}', [
 // });
 
 // API route group that we need to protect
-Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']], function()
+// User Manager for Administrators
+Route::group(['prefix' => 'api', 'middleware' => ['role:admin']], function()
 {
-    // Protected route
     // List users
     Route::get('users', 'JwtAuthenticateController@index');
     // Route to create a new role
@@ -48,15 +48,13 @@ Route::group(['prefix' => 'api', 'middleware' => ['ability:admin,create-users']]
     // Route to check role
     Route::post('check', 'JwtAuthenticateController@checkRoles');
 });
+//Normal ability for normal users
+Route::group(['prefix' => 'api', 'middleware' => ['role:admin|user']], function() {
+    Route::get('tasks', 'ModelControllers\TaskController@getAllTasks');
+    Route::get('task/{id}', 'ModelControllers\TaskController@viewTask');
+    Route::post('task', 'ModelControllers\TaskController@createTask');
+    Route::put('task/{id}', 'ModelControllers\TaskController@editTask');
+    Route::delete('task/{id}', ['middleware' => ['permission:delete-tasks'], 'uses' => 'ModelControllers\TaskController@deleteTask']);
+});
 // Authentication route
 Route::post('auth/login', 'JwtAuthenticateController@authenticate');
-
-// API route
-Route::post('/api/upload-file', 'ExampleControllers\UploadController@uploadFile');
-
-// Task API
-Route::get('/api/tasks', 'ModelControllers\TaskController@getAllTasks');
-Route::get('/api/task/{id}', 'ModelControllers\TaskController@viewTask');
-Route::post('/api/task', 'ModelControllers\TaskController@createTask');
-Route::put('/api/task/{id}', 'ModelControllers\TaskController@editTask');
-Route::delete('/api/task/{id}', 'ModelControllers\TaskController@deleteTask');

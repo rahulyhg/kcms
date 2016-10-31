@@ -1,5 +1,4 @@
-import { Component, ViewContainerRef } from '@angular/core';
-import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
+import { Component } from '@angular/core';
 import { ToastService } from '../../services/ui/toast.service';
 import { TaskService } from '../../services/task/task.service';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
@@ -8,32 +7,26 @@ import { Task } from '../../models/Task';
 @Component({
     selector: 'tasks',
     template: require('./task.template.html'),
-    providers: [TaskService, MdSnackBar, ToastService, SlimLoadingBarService]
+    providers: [TaskService, ToastService, SlimLoadingBarService]
 })
 export class TaskComponent {
     tasks: Task[];
     title: string;
 
-    constructor(private snackBar: MdSnackBar, 
-                private viewContainerRef: ViewContainerRef,
+    constructor(
                 private toastService: ToastService,
                 private slimLoadingBarService: SlimLoadingBarService,
                 private taskService:TaskService){
         this.slimLoadingBarService.start();
         this.taskService.getTasks()
             .subscribe(
-                tasks => this.tasks = tasks,
+                data => {this.tasks = data.tasks},
                 err => {
                         this.toastService.showToast('error', 'System Error', err, true, 3000);
                         this.slimLoadingBarService.complete();
                 },
                 () => this.slimLoadingBarService.complete()
             );
-    }
-
-    showMessage(message, title) {
-        var config = new MdSnackBarConfig(this.viewContainerRef);
-        this.snackBar.open(message, title, config);
     }
 
     addTask(event){

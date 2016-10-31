@@ -4,20 +4,15 @@ namespace App\Http\Controllers\ModelControllers;
 
 use App\Task;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class TaskController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
 
     //Task basic method
     public function getAllTasks(){
-        $tasks = Task::all();
-        return $tasks->toJson();
+        return response()->json(['tasks'=>Task::all()]);
     }
 
     public function createTask(Request $request){
