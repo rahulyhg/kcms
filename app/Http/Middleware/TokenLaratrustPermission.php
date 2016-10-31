@@ -28,7 +28,7 @@ class TokenLaratrustPermission extends BaseMiddleware
         if (! $user) {
             return $this->respond('tymon.jwt.user_not_found', 'user_not_found', 404);
         }
-        if (!$user->hasRole(explode('|', $permission))) {           
+        if (!$user->can(explode('|', $permission))) {           
             return $this->respond('tymon.jwt.invalid', $permission, 401, 'Unauthorized');
         }
         $this->events->fire('tymon.jwt.valid', $user);

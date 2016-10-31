@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ExampleControllers;
+namespace App\Http\Controllers\AngularControllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

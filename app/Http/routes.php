@@ -12,7 +12,7 @@
 */
 
 Route::get('/{any?}', [
-    'uses' => 'ExampleControllers\AngularRoutesController@index',
+    'uses' => 'AngularControllers\AngularRoutesController@index',
     'as' => 'home'
 ]);
 
@@ -27,26 +27,19 @@ Route::get('/{any?}', [
 |
 */
 
-// Route::group(['middleware' => ['web']], function () {
-//     //
-// });
+// Authentication route
+Route::post('auth/login', 'Auth\JwtAuthenticateController@authenticate');
 
 // API route group that we need to protect
 // User Manager for Administrators
 Route::group(['prefix' => 'api', 'middleware' => ['role:admin']], function()
 {
-    // List users
-    Route::get('users', 'JwtAuthenticateController@index');
-    // Route to create a new role
-    Route::post('role', 'JwtAuthenticateController@createRole');
-    // Route to create a new permission
-    Route::post('permission', 'JwtAuthenticateController@createPermission');
-    // Route to assign role to user
-    Route::post('assign-role', 'JwtAuthenticateController@assignRole');
-    // Route to attache permission to a role
-    Route::post('attach-permission', 'JwtAuthenticateController@attachPermission');
-    // Route to check role
-    Route::post('check', 'JwtAuthenticateController@checkRoles');
+    Route::get('users', 'Auth\JwtAuthenticateController@index');
+    Route::post('role', 'Auth\JwtAuthenticateController@createRole');
+    Route::post('permission', 'Auth\JwtAuthenticateController@createPermission');
+    Route::post('assign-role', 'Auth\JwtAuthenticateController@assignRole');
+    Route::post('attach-permission', 'Auth\JwtAuthenticateController@attachPermission');
+    Route::post('check', 'Auth\JwtAuthenticateController@checkRoles');
 });
 //Normal ability for normal users
 Route::group(['prefix' => 'api', 'middleware' => ['role:admin|user']], function() {
@@ -54,7 +47,5 @@ Route::group(['prefix' => 'api', 'middleware' => ['role:admin|user']], function(
     Route::get('task/{id}', 'ModelControllers\TaskController@viewTask');
     Route::post('task', 'ModelControllers\TaskController@createTask');
     Route::put('task/{id}', 'ModelControllers\TaskController@editTask');
-    Route::delete('task/{id}', ['middleware' => ['permission:delete-tasks'], 'uses' => 'ModelControllers\TaskController@deleteTask']);
+    Route::delete('task/{id}', ['middleware' => ['ability:admin,delete-tasks'], 'uses' => 'ModelControllers\TaskController@deleteTask']);
 });
-// Authentication route
-Route::post('auth/login', 'JwtAuthenticateController@authenticate');
